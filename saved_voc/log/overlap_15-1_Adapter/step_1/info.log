@@ -1,0 +1,1385 @@
+2025-05-22 11:36:15,037 - train(rank0) - INFO - overlap / 15-1 / step: 1
+2025-05-22 11:36:15,037 - train(rank0) - INFO - The number of datasets: 487 / 85 / 1277
+2025-05-22 11:36:15,037 - train(rank0) - INFO - Old Classes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+2025-05-22 11:36:15,037 - train(rank0) - INFO - New Classes: [16]
+2025-05-22 11:36:15,962 - train(rank0) - INFO - DeepLabV3(
+  (backbone): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (6): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (7): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (8): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (9): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (10): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (11): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (12): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (13): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (14): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (15): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (16): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (17): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (18): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (19): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (20): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (21): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (22): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): SyncBatchNorm(2048, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  (aspp): ASPP(
+    (convs): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+      )
+      (1): ASPPConv(
+        (0): Conv2d(2048, 256, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6), bias=False)
+        (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+      )
+      (2): ASPPConv(
+        (0): Conv2d(2048, 256, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12), bias=False)
+        (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+      )
+      (3): ASPPConv(
+        (0): Conv2d(2048, 256, kernel_size=(3, 3), stride=(1, 1), padding=(18, 18), dilation=(18, 18), bias=False)
+        (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+      )
+      (4): ASPPPooling(
+        (0): AdaptiveAvgPool2d(output_size=1)
+        (1): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU(inplace=True)
+      )
+    )
+    (project): Sequential(
+      (0): Conv2d(1280, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+      (3): Dropout(p=0.1, inplace=False)
+    )
+    (last_conv): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+    )
+  )
+  (cls): ModuleList(
+    (0): Conv2d(256, 15, kernel_size=(1, 1), stride=(1, 1))
+    (1): Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+2025-05-22 11:36:16,375 - train(rank0) - INFO - Load weights from a previous step:saved_voc/models/overlap_15-1_Adapter/step_0/checkpoint-epoch60.pth
+2025-05-22 11:36:16,769 - train(rank0) - INFO - ** Random Initialization **
+2025-05-22 11:36:19,404 - train(rank0) - INFO - pos_weight - 4
+2025-05-22 11:36:19,404 - train(rank0) - INFO - Total loss = 1 * L_mbce + 5 * L_pkd
+2025-05-22 11:36:19,404 - train(rank0) - INFO - computing number of pixels...
+2025-05-22 11:36:25,562 - train(rank0) - INFO - [0/20]
+2025-05-22 11:36:25,997 - train(rank0) - INFO - [4/20]
+2025-05-22 11:36:26,439 - train(rank0) - INFO - [8/20]
+2025-05-22 11:36:26,889 - train(rank0) - INFO - [12/20]
+2025-05-22 11:36:27,340 - train(rank0) - INFO - [16/20]
+2025-05-22 11:36:27,883 - train(rank0) - INFO - tensor([[49]])
+2025-05-22 11:36:34,020 - train(rank2) - INFO - tensor([[49]])
+2025-05-22 11:36:34,140 - train(rank1) - INFO - tensor([[49]])
+2025-05-22 11:36:34,148 - train(rank0) - INFO - Epoch - 1
+2025-05-22 11:36:34,148 - train(rank0) - INFO - computing pred number of pixels...
+2025-05-22 11:36:40,553 - train(rank0) - INFO - [0/20]
+2025-05-22 11:36:40,937 - train(rank0) - INFO - [4/20]
+2025-05-22 11:36:41,420 - train(rank0) - INFO - [8/20]
+2025-05-22 11:36:41,903 - train(rank0) - INFO - [12/20]
+2025-05-22 11:36:42,386 - train(rank0) - INFO - [16/20]
+2025-05-22 11:36:53,894 - train(rank0) - INFO - lr[0]: 0.000100 / lr[1]: 0.001000 / lr[2]: 0.001000
+2025-05-22 11:36:53,895 - train(rank0) - INFO - [0/20]
+2025-05-22 11:36:53,965 - torch.nn.parallel.distributed - INFO - Reducer buckets have been rebuilt in this iteration.
+2025-05-22 11:36:53,965 - torch.nn.parallel.distributed - INFO - Reducer buckets have been rebuilt in this iteration.
+2025-05-22 11:36:53,967 - torch.nn.parallel.distributed - INFO - Reducer buckets have been rebuilt in this iteration.
+2025-05-22 11:36:56,230 - train(rank0) - INFO - [4/20]
+2025-05-22 11:36:58,575 - train(rank0) - INFO - [8/20]
+2025-05-22 11:37:00,945 - train(rank0) - INFO - [12/20]
+2025-05-22 11:37:03,316 - train(rank0) - INFO - [16/20]
+2025-05-22 11:37:05,498 - train(rank0) - INFO -     epoch          : 1
+2025-05-22 11:37:05,499 - train(rank0) - INFO -     loss           : 0.4312630958855152
+2025-05-22 11:37:05,500 - train(rank0) - INFO -     loss_mbce      : 0.2839495474472642
+2025-05-22 11:37:05,500 - train(rank0) - INFO -     loss_pkd       : 0.020408782540471293
+2025-05-22 11:37:05,500 - train(rank0) - INFO -     loss_cont      : 0.06429796397686006
+2025-05-22 11:37:05,500 - train(rank0) - INFO -     loss_uncer     : 0.06260679334402086
+2025-05-22 11:37:05,510 - train(rank0) - INFO - Epoch - 2
+2025-05-22 11:37:11,835 - train(rank0) - INFO - lr[0]: 0.000098 / lr[1]: 0.000985 / lr[2]: 0.000985
+2025-05-22 11:37:11,835 - train(rank0) - INFO - [0/20]
+2025-05-22 11:37:14,165 - train(rank0) - INFO - [4/20]
+2025-05-22 11:37:16,517 - train(rank0) - INFO - [8/20]
+2025-05-22 11:37:18,833 - train(rank0) - INFO - [12/20]
+2025-05-22 11:37:21,191 - train(rank0) - INFO - [16/20]
+2025-05-22 11:37:23,323 - train(rank0) - INFO -     epoch          : 2
+2025-05-22 11:37:23,323 - train(rank0) - INFO -     loss           : 0.26401676386594775
+2025-05-22 11:37:23,324 - train(rank0) - INFO -     loss_mbce      : 0.12084079449996352
+2025-05-22 11:37:23,324 - train(rank0) - INFO -     loss_pkd       : 0.015472047263756394
+2025-05-22 11:37:23,324 - train(rank0) - INFO -     loss_cont      : 0.061639703512191765
+2025-05-22 11:37:23,324 - train(rank0) - INFO -     loss_uncer     : 0.06606421560049056
+2025-05-22 11:37:23,405 - train(rank0) - INFO - Epoch - 3
+2025-05-22 11:37:29,515 - train(rank0) - INFO - lr[0]: 0.000097 / lr[1]: 0.000970 / lr[2]: 0.000970
+2025-05-22 11:37:29,516 - train(rank0) - INFO - [0/20]
+2025-05-22 11:37:31,838 - train(rank0) - INFO - [4/20]
+2025-05-22 11:37:34,216 - train(rank0) - INFO - [8/20]
+2025-05-22 11:37:36,549 - train(rank0) - INFO - [12/20]
+2025-05-22 11:37:38,877 - train(rank0) - INFO - [16/20]
+2025-05-22 11:37:41,062 - train(rank0) - INFO -     epoch          : 3
+2025-05-22 11:37:41,063 - train(rank0) - INFO -     loss           : 0.24111602902412416
+2025-05-22 11:37:41,063 - train(rank0) - INFO -     loss_mbce      : 0.10353732286021114
+2025-05-22 11:37:41,064 - train(rank0) - INFO -     loss_pkd       : 0.011483452806714922
+2025-05-22 11:37:41,064 - train(rank0) - INFO -     loss_cont      : 0.06182080566883086
+2025-05-22 11:37:41,064 - train(rank0) - INFO -     loss_uncer     : 0.06427444636821747
+2025-05-22 11:37:41,075 - train(rank0) - INFO - Epoch - 4
+2025-05-22 11:37:47,482 - train(rank0) - INFO - lr[0]: 0.000095 / lr[1]: 0.000955 / lr[2]: 0.000955
+2025-05-22 11:37:47,483 - train(rank0) - INFO - [0/20]
+2025-05-22 11:37:49,820 - train(rank0) - INFO - [4/20]
+2025-05-22 11:37:52,127 - train(rank0) - INFO - [8/20]
+2025-05-22 11:37:54,460 - train(rank0) - INFO - [12/20]
+2025-05-22 11:37:56,824 - train(rank0) - INFO - [16/20]
+2025-05-22 11:37:58,984 - train(rank0) - INFO -     epoch          : 4
+2025-05-22 11:37:58,984 - train(rank0) - INFO -     loss           : 0.2169634848833084
+2025-05-22 11:37:58,985 - train(rank0) - INFO -     loss_mbce      : 0.08550293799489736
+2025-05-22 11:37:58,985 - train(rank0) - INFO -     loss_pkd       : 0.005679552006768063
+2025-05-22 11:37:58,985 - train(rank0) - INFO -     loss_cont      : 0.060536676347255715
+2025-05-22 11:37:58,985 - train(rank0) - INFO -     loss_uncer     : 0.06524431228637696
+2025-05-22 11:37:59,045 - train(rank0) - INFO - Epoch - 5
+2025-05-22 11:38:05,134 - train(rank0) - INFO - lr[0]: 0.000094 / lr[1]: 0.000940 / lr[2]: 0.000940
+2025-05-22 11:38:05,134 - train(rank0) - INFO - [0/20]
+2025-05-22 11:38:07,490 - train(rank0) - INFO - [4/20]
+2025-05-22 11:38:09,858 - train(rank0) - INFO - [8/20]
+2025-05-22 11:38:12,264 - train(rank0) - INFO - [12/20]
+2025-05-22 11:38:14,585 - train(rank0) - INFO - [16/20]
+2025-05-22 11:38:16,741 - train(rank0) - INFO -     epoch          : 5
+2025-05-22 11:38:16,742 - train(rank0) - INFO -     loss           : 0.2087976612150669
+2025-05-22 11:38:16,742 - train(rank0) - INFO -     loss_mbce      : 0.07968236524611712
+2025-05-22 11:38:16,742 - train(rank0) - INFO -     loss_pkd       : 0.005946009012404829
+2025-05-22 11:38:16,742 - train(rank0) - INFO -     loss_cont      : 0.059603140354156495
+2025-05-22 11:38:16,742 - train(rank0) - INFO -     loss_uncer     : 0.06356614127755165
+2025-05-22 11:38:16,752 - train(rank0) - INFO - Epoch - 6
+2025-05-22 11:38:22,917 - train(rank0) - INFO - lr[0]: 0.000092 / lr[1]: 0.000925 / lr[2]: 0.000925
+2025-05-22 11:38:22,917 - train(rank0) - INFO - [0/20]
+2025-05-22 11:38:25,228 - train(rank0) - INFO - [4/20]
+2025-05-22 11:38:27,609 - train(rank0) - INFO - [8/20]
+2025-05-22 11:38:29,986 - train(rank0) - INFO - [12/20]
+2025-05-22 11:38:32,314 - train(rank0) - INFO - [16/20]
+2025-05-22 11:38:34,414 - train(rank0) - INFO -     epoch          : 6
+2025-05-22 11:38:34,415 - train(rank0) - INFO -     loss           : 0.19486233070492745
+2025-05-22 11:38:34,415 - train(rank0) - INFO -     loss_mbce      : 0.0673747613094747
+2025-05-22 11:38:34,416 - train(rank0) - INFO -     loss_pkd       : 0.005954295862466097
+2025-05-22 11:38:34,416 - train(rank0) - INFO -     loss_cont      : 0.056647493839263915
+2025-05-22 11:38:34,416 - train(rank0) - INFO -     loss_uncer     : 0.06488577395677567
+2025-05-22 11:38:34,471 - train(rank0) - INFO - Epoch - 7
+2025-05-22 11:38:40,737 - train(rank0) - INFO - lr[0]: 0.000091 / lr[1]: 0.000910 / lr[2]: 0.000910
+2025-05-22 11:38:40,737 - train(rank0) - INFO - [0/20]
+2025-05-22 11:38:43,093 - train(rank0) - INFO - [4/20]
+2025-05-22 11:38:45,443 - train(rank0) - INFO - [8/20]
+2025-05-22 11:38:47,808 - train(rank0) - INFO - [12/20]
+2025-05-22 11:38:50,134 - train(rank0) - INFO - [16/20]
+2025-05-22 11:38:52,414 - train(rank0) - INFO -     epoch          : 7
+2025-05-22 11:38:52,415 - train(rank0) - INFO -     loss           : 0.20284573882818221
+2025-05-22 11:38:52,415 - train(rank0) - INFO -     loss_mbce      : 0.07254079198464751
+2025-05-22 11:38:52,415 - train(rank0) - INFO -     loss_pkd       : 0.0076681694481521845
+2025-05-22 11:38:52,416 - train(rank0) - INFO -     loss_cont      : 0.05867181569337845
+2025-05-22 11:38:52,416 - train(rank0) - INFO -     loss_uncer     : 0.06396495610475539
+2025-05-22 11:38:52,424 - train(rank0) - INFO - Epoch - 8
+2025-05-22 11:38:58,857 - train(rank0) - INFO - lr[0]: 0.000089 / lr[1]: 0.000894 / lr[2]: 0.000894
+2025-05-22 11:38:58,858 - train(rank0) - INFO - [0/20]
+2025-05-22 11:39:01,157 - train(rank0) - INFO - [4/20]
+2025-05-22 11:39:03,480 - train(rank0) - INFO - [8/20]
+2025-05-22 11:39:05,806 - train(rank0) - INFO - [12/20]
+2025-05-22 11:39:08,173 - train(rank0) - INFO - [16/20]
+2025-05-22 11:39:10,368 - train(rank0) - INFO -     epoch          : 8
+2025-05-22 11:39:10,369 - train(rank0) - INFO -     loss           : 0.19112153127789497
+2025-05-22 11:39:10,369 - train(rank0) - INFO -     loss_mbce      : 0.06693588299676775
+2025-05-22 11:39:10,369 - train(rank0) - INFO -     loss_pkd       : 0.004821523587452248
+2025-05-22 11:39:10,370 - train(rank0) - INFO -     loss_cont      : 0.05621086657047273
+2025-05-22 11:39:10,370 - train(rank0) - INFO -     loss_uncer     : 0.06315325930714606
+2025-05-22 11:39:10,381 - train(rank0) - INFO - Epoch - 9
+2025-05-22 11:39:16,757 - train(rank0) - INFO - lr[0]: 0.000088 / lr[1]: 0.000879 / lr[2]: 0.000879
+2025-05-22 11:39:16,758 - train(rank0) - INFO - [0/20]
+2025-05-22 11:39:19,087 - train(rank0) - INFO - [4/20]
+2025-05-22 11:39:21,495 - train(rank0) - INFO - [8/20]
+2025-05-22 11:39:23,864 - train(rank0) - INFO - [12/20]
+2025-05-22 11:39:26,174 - train(rank0) - INFO - [16/20]
+2025-05-22 11:39:28,343 - train(rank0) - INFO -     epoch          : 9
+2025-05-22 11:39:28,344 - train(rank0) - INFO -     loss           : 0.19848365262150763
+2025-05-22 11:39:28,344 - train(rank0) - INFO -     loss_mbce      : 0.07116867862641811
+2025-05-22 11:39:28,344 - train(rank0) - INFO -     loss_pkd       : 0.006533529682201333
+2025-05-22 11:39:28,344 - train(rank0) - INFO -     loss_cont      : 0.05763048440217973
+2025-05-22 11:39:28,345 - train(rank0) - INFO -     loss_uncer     : 0.06315095663070679
+2025-05-22 11:39:28,397 - train(rank0) - INFO - Epoch - 10
+2025-05-22 11:39:34,564 - train(rank0) - INFO - lr[0]: 0.000086 / lr[1]: 0.000864 / lr[2]: 0.000864
+2025-05-22 11:39:34,565 - train(rank0) - INFO - [0/20]
+2025-05-22 11:39:36,892 - train(rank0) - INFO - [4/20]
+2025-05-22 11:39:39,217 - train(rank0) - INFO - [8/20]
+2025-05-22 11:39:41,598 - train(rank0) - INFO - [12/20]
+2025-05-22 11:39:43,965 - train(rank0) - INFO - [16/20]
+2025-05-22 11:39:46,207 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:39:51,460 - train(rank0) - INFO -     epoch          : 10
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     loss           : 0.1912285156548023
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     loss_mbce      : 0.06667353445664048
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     loss_pkd       : 0.0060338651746860705
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     loss_cont      : 0.05617225140333175
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     loss_uncer     : 0.062348860204219814
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.01
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 23.66
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 37.02
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 78.63
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.01
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 23.66
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 37.02
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 54.34
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.01
+16 *pottedplant 23.66
+
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 78.45
+2025-05-22 11:39:51,461 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 23.47
+2025-05-22 11:39:51,462 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 36.14
+2025-05-22 11:39:51,462 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 50.96
+2025-05-22 11:39:51,462 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 78.45
+16 *pottedplant 23.47
+
+2025-05-22 11:39:52,033 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:39:52,034 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:39:57,722 - train(rank0) - INFO - [0/20]
+2025-05-22 11:39:58,216 - train(rank0) - INFO - [4/20]
+2025-05-22 11:39:58,705 - train(rank0) - INFO - [8/20]
+2025-05-22 11:39:59,200 - train(rank0) - INFO - [12/20]
+2025-05-22 11:39:59,688 - train(rank0) - INFO - [16/20]
+2025-05-22 11:40:00,413 - train(rank0) - INFO - computing noise...
+2025-05-22 11:40:06,032 - train(rank0) - INFO - [0/20]
+2025-05-22 11:40:06,556 - train(rank0) - INFO - [4/20]
+2025-05-22 11:40:07,103 - train(rank0) - INFO - [8/20]
+2025-05-22 11:40:07,597 - train(rank0) - INFO - [12/20]
+2025-05-22 11:40:08,093 - train(rank0) - INFO - [16/20]
+2025-05-22 11:40:08,870 - train(rank0) - INFO - Epoch - 11
+2025-05-22 11:40:15,411 - train(rank0) - INFO - lr[0]: 0.000085 / lr[1]: 0.000849 / lr[2]: 0.000849
+2025-05-22 11:40:15,412 - train(rank0) - INFO - [0/20]
+2025-05-22 11:40:17,756 - train(rank0) - INFO - [4/20]
+2025-05-22 11:40:20,072 - train(rank0) - INFO - [8/20]
+2025-05-22 11:40:22,438 - train(rank0) - INFO - [12/20]
+2025-05-22 11:40:24,765 - train(rank0) - INFO - [16/20]
+2025-05-22 11:40:27,006 - train(rank0) - INFO -     epoch          : 11
+2025-05-22 11:40:27,007 - train(rank0) - INFO -     loss           : 0.18938788324594497
+2025-05-22 11:40:27,007 - train(rank0) - INFO -     loss_mbce      : 0.06407635007053614
+2025-05-22 11:40:27,007 - train(rank0) - INFO -     loss_pkd       : 0.0062649945029988885
+2025-05-22 11:40:27,007 - train(rank0) - INFO -     loss_cont      : 0.05589281305670739
+2025-05-22 11:40:27,008 - train(rank0) - INFO -     loss_uncer     : 0.06315372452139853
+2025-05-22 11:40:27,023 - train(rank0) - INFO - Epoch - 12
+2025-05-22 11:40:33,629 - train(rank0) - INFO - lr[0]: 0.000083 / lr[1]: 0.000833 / lr[2]: 0.000833
+2025-05-22 11:40:33,630 - train(rank0) - INFO - [0/20]
+2025-05-22 11:40:36,005 - train(rank0) - INFO - [4/20]
+2025-05-22 11:40:38,351 - train(rank0) - INFO - [8/20]
+2025-05-22 11:40:40,682 - train(rank0) - INFO - [12/20]
+2025-05-22 11:40:43,016 - train(rank0) - INFO - [16/20]
+2025-05-22 11:40:45,171 - train(rank0) - INFO -     epoch          : 12
+2025-05-22 11:40:45,171 - train(rank0) - INFO -     loss           : 0.18549146875739098
+2025-05-22 11:40:45,171 - train(rank0) - INFO -     loss_mbce      : 0.05823631174862385
+2025-05-22 11:40:45,172 - train(rank0) - INFO -     loss_pkd       : 0.006586313800653443
+2025-05-22 11:40:45,172 - train(rank0) - INFO -     loss_cont      : 0.05660551875829698
+2025-05-22 11:40:45,172 - train(rank0) - INFO -     loss_uncer     : 0.06406332269310952
+2025-05-22 11:40:45,189 - train(rank0) - INFO - Epoch - 13
+2025-05-22 11:40:51,457 - train(rank0) - INFO - lr[0]: 0.000082 / lr[1]: 0.000818 / lr[2]: 0.000818
+2025-05-22 11:40:51,457 - train(rank0) - INFO - [0/20]
+2025-05-22 11:40:53,793 - train(rank0) - INFO - [4/20]
+2025-05-22 11:40:56,150 - train(rank0) - INFO - [8/20]
+2025-05-22 11:40:58,458 - train(rank0) - INFO - [12/20]
+2025-05-22 11:41:00,825 - train(rank0) - INFO - [16/20]
+2025-05-22 11:41:03,005 - train(rank0) - INFO -     epoch          : 13
+2025-05-22 11:41:03,006 - train(rank0) - INFO -     loss           : 0.1848564475774765
+2025-05-22 11:41:03,007 - train(rank0) - INFO -     loss_mbce      : 0.06080508977174759
+2025-05-22 11:41:03,008 - train(rank0) - INFO -     loss_pkd       : 0.005072875239420682
+2025-05-22 11:41:03,008 - train(rank0) - INFO -     loss_cont      : 0.05630299985408784
+2025-05-22 11:41:03,009 - train(rank0) - INFO -     loss_uncer     : 0.06267547935247421
+2025-05-22 11:41:03,018 - train(rank0) - INFO - Epoch - 14
+2025-05-22 11:41:09,427 - train(rank0) - INFO - lr[0]: 0.000080 / lr[1]: 0.000803 / lr[2]: 0.000803
+2025-05-22 11:41:09,427 - train(rank0) - INFO - [0/20]
+2025-05-22 11:41:11,720 - train(rank0) - INFO - [4/20]
+2025-05-22 11:41:14,100 - train(rank0) - INFO - [8/20]
+2025-05-22 11:41:16,452 - train(rank0) - INFO - [12/20]
+2025-05-22 11:41:18,776 - train(rank0) - INFO - [16/20]
+2025-05-22 11:41:20,981 - train(rank0) - INFO -     epoch          : 14
+2025-05-22 11:41:20,982 - train(rank0) - INFO -     loss           : 0.18115631639957427
+2025-05-22 11:41:20,983 - train(rank0) - INFO -     loss_mbce      : 0.05923489965498448
+2025-05-22 11:41:20,983 - train(rank0) - INFO -     loss_pkd       : 0.004414079136040527
+2025-05-22 11:41:20,983 - train(rank0) - INFO -     loss_cont      : 0.05511919796466828
+2025-05-22 11:41:20,983 - train(rank0) - INFO -     loss_uncer     : 0.06238814055919648
+2025-05-22 11:41:20,992 - train(rank0) - INFO - Epoch - 15
+2025-05-22 11:41:27,259 - train(rank0) - INFO - lr[0]: 0.000079 / lr[1]: 0.000787 / lr[2]: 0.000787
+2025-05-22 11:41:27,259 - train(rank0) - INFO - [0/20]
+2025-05-22 11:41:29,617 - train(rank0) - INFO - [4/20]
+2025-05-22 11:41:31,948 - train(rank0) - INFO - [8/20]
+2025-05-22 11:41:34,287 - train(rank0) - INFO - [12/20]
+2025-05-22 11:41:36,593 - train(rank0) - INFO - [16/20]
+2025-05-22 11:41:38,769 - train(rank0) - INFO -     epoch          : 15
+2025-05-22 11:41:38,771 - train(rank0) - INFO -     loss           : 0.1784764565527439
+2025-05-22 11:41:38,771 - train(rank0) - INFO -     loss_mbce      : 0.052510039508342744
+2025-05-22 11:41:38,771 - train(rank0) - INFO -     loss_pkd       : 0.004855609411606565
+2025-05-22 11:41:38,771 - train(rank0) - INFO -     loss_cont      : 0.055144578516483314
+2025-05-22 11:41:38,771 - train(rank0) - INFO -     loss_uncer     : 0.06596622943878175
+2025-05-22 11:41:38,803 - train(rank0) - INFO - Epoch - 16
+2025-05-22 11:41:44,876 - train(rank0) - INFO - lr[0]: 0.000077 / lr[1]: 0.000772 / lr[2]: 0.000772
+2025-05-22 11:41:44,877 - train(rank0) - INFO - [0/20]
+2025-05-22 11:41:47,166 - train(rank0) - INFO - [4/20]
+2025-05-22 11:41:49,541 - train(rank0) - INFO - [8/20]
+2025-05-22 11:41:51,860 - train(rank0) - INFO - [12/20]
+2025-05-22 11:41:54,129 - train(rank0) - INFO - [16/20]
+2025-05-22 11:41:56,354 - train(rank0) - INFO -     epoch          : 16
+2025-05-22 11:41:56,356 - train(rank0) - INFO -     loss           : 0.1818076767027378
+2025-05-22 11:41:56,356 - train(rank0) - INFO -     loss_mbce      : 0.06183733707293868
+2025-05-22 11:41:56,356 - train(rank0) - INFO -     loss_pkd       : 0.006251250932109542
+2025-05-22 11:41:56,356 - train(rank0) - INFO -     loss_cont      : 0.05520641118288042
+2025-05-22 11:41:56,356 - train(rank0) - INFO -     loss_uncer     : 0.05851267710328102
+2025-05-22 11:41:56,366 - train(rank0) - INFO - Epoch - 17
+2025-05-22 11:42:02,324 - train(rank0) - INFO - lr[0]: 0.000076 / lr[1]: 0.000756 / lr[2]: 0.000756
+2025-05-22 11:42:02,325 - train(rank0) - INFO - [0/20]
+2025-05-22 11:42:04,599 - train(rank0) - INFO - [4/20]
+2025-05-22 11:42:06,930 - train(rank0) - INFO - [8/20]
+2025-05-22 11:42:09,312 - train(rank0) - INFO - [12/20]
+2025-05-22 11:42:11,630 - train(rank0) - INFO - [16/20]
+2025-05-22 11:42:13,785 - train(rank0) - INFO -     epoch          : 17
+2025-05-22 11:42:13,786 - train(rank0) - INFO -     loss           : 0.17905225679278375
+2025-05-22 11:42:13,786 - train(rank0) - INFO -     loss_mbce      : 0.05382980406284332
+2025-05-22 11:42:13,786 - train(rank0) - INFO -     loss_pkd       : 0.005454393933177926
+2025-05-22 11:42:13,787 - train(rank0) - INFO -     loss_cont      : 0.05571863442659377
+2025-05-22 11:42:13,787 - train(rank0) - INFO -     loss_uncer     : 0.06404942184686661
+2025-05-22 11:42:13,813 - train(rank0) - INFO - Epoch - 18
+2025-05-22 11:42:19,869 - train(rank0) - INFO - lr[0]: 0.000074 / lr[1]: 0.000741 / lr[2]: 0.000741
+2025-05-22 11:42:19,870 - train(rank0) - INFO - [0/20]
+2025-05-22 11:42:22,125 - train(rank0) - INFO - [4/20]
+2025-05-22 11:42:24,464 - train(rank0) - INFO - [8/20]
+2025-05-22 11:42:26,847 - train(rank0) - INFO - [12/20]
+2025-05-22 11:42:29,176 - train(rank0) - INFO - [16/20]
+2025-05-22 11:42:31,419 - train(rank0) - INFO -     epoch          : 18
+2025-05-22 11:42:31,420 - train(rank0) - INFO -     loss           : 0.1734789326786995
+2025-05-22 11:42:31,420 - train(rank0) - INFO -     loss_mbce      : 0.049026272399351
+2025-05-22 11:42:31,420 - train(rank0) - INFO -     loss_pkd       : 0.005258052289718762
+2025-05-22 11:42:31,420 - train(rank0) - INFO -     loss_cont      : 0.053831465095281604
+2025-05-22 11:42:31,420 - train(rank0) - INFO -     loss_uncer     : 0.06536314144730568
+2025-05-22 11:42:31,424 - train(rank0) - INFO - Epoch - 19
+2025-05-22 11:42:37,877 - train(rank0) - INFO - lr[0]: 0.000073 / lr[1]: 0.000725 / lr[2]: 0.000725
+2025-05-22 11:42:37,878 - train(rank0) - INFO - [0/20]
+2025-05-22 11:42:40,177 - train(rank0) - INFO - [4/20]
+2025-05-22 11:42:42,478 - train(rank0) - INFO - [8/20]
+2025-05-22 11:42:44,744 - train(rank0) - INFO - [12/20]
+2025-05-22 11:42:47,088 - train(rank0) - INFO - [16/20]
+2025-05-22 11:42:49,367 - train(rank0) - INFO -     epoch          : 19
+2025-05-22 11:42:49,368 - train(rank0) - INFO -     loss           : 0.17945839166641236
+2025-05-22 11:42:49,369 - train(rank0) - INFO -     loss_mbce      : 0.057645501010119914
+2025-05-22 11:42:49,369 - train(rank0) - INFO -     loss_pkd       : 0.0063305674702860415
+2025-05-22 11:42:49,370 - train(rank0) - INFO -     loss_cont      : 0.054125039279460906
+2025-05-22 11:42:49,370 - train(rank0) - INFO -     loss_uncer     : 0.06135728210210799
+2025-05-22 11:42:49,380 - train(rank0) - INFO - Epoch - 20
+2025-05-22 11:42:55,251 - train(rank0) - INFO - lr[0]: 0.000071 / lr[1]: 0.000710 / lr[2]: 0.000710
+2025-05-22 11:42:55,251 - train(rank0) - INFO - [0/20]
+2025-05-22 11:42:57,565 - train(rank0) - INFO - [4/20]
+2025-05-22 11:42:59,901 - train(rank0) - INFO - [8/20]
+2025-05-22 11:43:02,232 - train(rank0) - INFO - [12/20]
+2025-05-22 11:43:04,570 - train(rank0) - INFO - [16/20]
+2025-05-22 11:43:06,734 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:43:10,793 - train(rank0) - INFO -     epoch          : 20
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     loss           : 0.1828651785850525
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     loss_mbce      : 0.05887153297662735
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     loss_pkd       : 0.007409779049339704
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     loss_cont      : 0.0542079484462738
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     loss_uncer     : 0.06237591624259949
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.20
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 42.65
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 56.85
+2025-05-22 11:43:10,794 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 80.78
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.20
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 42.65
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 56.85
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 63.93
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.20
+16 *pottedplant 42.65
+
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 80.19
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 41.89
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 55.03
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 61.04
+2025-05-22 11:43:10,795 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 80.19
+16 *pottedplant 41.89
+
+2025-05-22 11:43:11,514 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:43:11,515 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:43:16,618 - train(rank0) - INFO - [0/20]
+2025-05-22 11:43:17,115 - train(rank0) - INFO - [4/20]
+2025-05-22 11:43:17,608 - train(rank0) - INFO - [8/20]
+2025-05-22 11:43:18,097 - train(rank0) - INFO - [12/20]
+2025-05-22 11:43:18,586 - train(rank0) - INFO - [16/20]
+2025-05-22 11:43:19,375 - train(rank0) - INFO - computing noise...
+2025-05-22 11:43:25,061 - train(rank0) - INFO - [0/20]
+2025-05-22 11:43:25,567 - train(rank0) - INFO - [4/20]
+2025-05-22 11:43:26,063 - train(rank0) - INFO - [8/20]
+2025-05-22 11:43:26,562 - train(rank0) - INFO - [12/20]
+2025-05-22 11:43:27,059 - train(rank0) - INFO - [16/20]
+2025-05-22 11:43:27,798 - train(rank0) - INFO - Epoch - 21
+2025-05-22 11:43:33,868 - train(rank0) - INFO - lr[0]: 0.000069 / lr[1]: 0.000694 / lr[2]: 0.000694
+2025-05-22 11:43:33,868 - train(rank0) - INFO - [0/20]
+2025-05-22 11:43:36,188 - train(rank0) - INFO - [4/20]
+2025-05-22 11:43:38,553 - train(rank0) - INFO - [8/20]
+2025-05-22 11:43:40,858 - train(rank0) - INFO - [12/20]
+2025-05-22 11:43:43,199 - train(rank0) - INFO - [16/20]
+2025-05-22 11:43:45,335 - train(rank0) - INFO -     epoch          : 21
+2025-05-22 11:43:45,335 - train(rank0) - INFO -     loss           : 0.17194997295737266
+2025-05-22 11:43:45,336 - train(rank0) - INFO -     loss_mbce      : 0.04830401465296745
+2025-05-22 11:43:45,336 - train(rank0) - INFO -     loss_pkd       : 0.005360132279747631
+2025-05-22 11:43:45,336 - train(rank0) - INFO -     loss_cont      : 0.053783250302076334
+2025-05-22 11:43:45,336 - train(rank0) - INFO -     loss_uncer     : 0.06450257226824761
+2025-05-22 11:43:45,345 - train(rank0) - INFO - Epoch - 22
+2025-05-22 11:43:51,514 - train(rank0) - INFO - lr[0]: 0.000068 / lr[1]: 0.000679 / lr[2]: 0.000679
+2025-05-22 11:43:51,514 - train(rank0) - INFO - [0/20]
+2025-05-22 11:43:53,889 - train(rank0) - INFO - [4/20]
+2025-05-22 11:43:56,167 - train(rank0) - INFO - [8/20]
+2025-05-22 11:43:58,486 - train(rank0) - INFO - [12/20]
+2025-05-22 11:44:00,881 - train(rank0) - INFO - [16/20]
+2025-05-22 11:44:03,083 - train(rank0) - INFO -     epoch          : 22
+2025-05-22 11:44:03,083 - train(rank0) - INFO -     loss           : 0.18296910598874092
+2025-05-22 11:44:03,084 - train(rank0) - INFO -     loss_mbce      : 0.061731036845594646
+2025-05-22 11:44:03,084 - train(rank0) - INFO -     loss_pkd       : 0.007530130707891658
+2025-05-22 11:44:03,084 - train(rank0) - INFO -     loss_cont      : 0.05343894094228744
+2025-05-22 11:44:03,084 - train(rank0) - INFO -     loss_uncer     : 0.06026899605989457
+2025-05-22 11:44:03,095 - train(rank0) - INFO - Epoch - 23
+2025-05-22 11:44:09,437 - train(rank0) - INFO - lr[0]: 0.000066 / lr[1]: 0.000663 / lr[2]: 0.000663
+2025-05-22 11:44:09,438 - train(rank0) - INFO - [0/20]
+2025-05-22 11:44:11,808 - train(rank0) - INFO - [4/20]
+2025-05-22 11:44:14,126 - train(rank0) - INFO - [8/20]
+2025-05-22 11:44:16,424 - train(rank0) - INFO - [12/20]
+2025-05-22 11:44:18,718 - train(rank0) - INFO - [16/20]
+2025-05-22 11:44:20,699 - train(rank0) - INFO -     epoch          : 23
+2025-05-22 11:44:20,700 - train(rank0) - INFO -     loss           : 0.1782648243010044
+2025-05-22 11:44:20,700 - train(rank0) - INFO -     loss_mbce      : 0.054910436272621155
+2025-05-22 11:44:20,700 - train(rank0) - INFO -     loss_pkd       : 0.0064550229799351655
+2025-05-22 11:44:20,700 - train(rank0) - INFO -     loss_cont      : 0.05307200968265534
+2025-05-22 11:44:20,700 - train(rank0) - INFO -     loss_uncer     : 0.06382735580205917
+2025-05-22 11:44:20,769 - train(rank0) - INFO - Epoch - 24
+2025-05-22 11:44:26,639 - train(rank0) - INFO - lr[0]: 0.000065 / lr[1]: 0.000647 / lr[2]: 0.000647
+2025-05-22 11:44:26,640 - train(rank0) - INFO - [0/20]
+2025-05-22 11:44:28,971 - train(rank0) - INFO - [4/20]
+2025-05-22 11:44:31,333 - train(rank0) - INFO - [8/20]
+2025-05-22 11:44:33,719 - train(rank0) - INFO - [12/20]
+2025-05-22 11:44:35,942 - train(rank0) - INFO - [16/20]
+2025-05-22 11:44:38,130 - train(rank0) - INFO -     epoch          : 24
+2025-05-22 11:44:38,131 - train(rank0) - INFO -     loss           : 0.18265993669629096
+2025-05-22 11:44:38,131 - train(rank0) - INFO -     loss_mbce      : 0.05848255967721343
+2025-05-22 11:44:38,132 - train(rank0) - INFO -     loss_pkd       : 0.007685049960855395
+2025-05-22 11:44:38,132 - train(rank0) - INFO -     loss_cont      : 0.05373080611228942
+2025-05-22 11:44:38,132 - train(rank0) - INFO -     loss_uncer     : 0.06276152253150939
+2025-05-22 11:44:38,140 - train(rank0) - INFO - Epoch - 25
+2025-05-22 11:44:44,098 - train(rank0) - INFO - lr[0]: 0.000063 / lr[1]: 0.000631 / lr[2]: 0.000631
+2025-05-22 11:44:44,099 - train(rank0) - INFO - [0/20]
+2025-05-22 11:44:46,429 - train(rank0) - INFO - [4/20]
+2025-05-22 11:44:48,813 - train(rank0) - INFO - [8/20]
+2025-05-22 11:44:51,148 - train(rank0) - INFO - [12/20]
+2025-05-22 11:44:53,468 - train(rank0) - INFO - [16/20]
+2025-05-22 11:44:55,897 - train(rank0) - INFO -     epoch          : 25
+2025-05-22 11:44:55,898 - train(rank0) - INFO -     loss           : 0.17533140853047371
+2025-05-22 11:44:55,898 - train(rank0) - INFO -     loss_mbce      : 0.04854889679700136
+2025-05-22 11:44:55,898 - train(rank0) - INFO -     loss_pkd       : 0.00720002970774658
+2025-05-22 11:44:55,899 - train(rank0) - INFO -     loss_cont      : 0.05329492703080178
+2025-05-22 11:44:55,899 - train(rank0) - INFO -     loss_uncer     : 0.06628755033016205
+2025-05-22 11:44:55,908 - train(rank0) - INFO - Epoch - 26
+2025-05-22 11:45:02,938 - train(rank0) - INFO - lr[0]: 0.000062 / lr[1]: 0.000616 / lr[2]: 0.000616
+2025-05-22 11:45:02,939 - train(rank0) - INFO - [0/20]
+2025-05-22 11:45:05,283 - train(rank0) - INFO - [4/20]
+2025-05-22 11:45:07,703 - train(rank0) - INFO - [8/20]
+2025-05-22 11:45:09,996 - train(rank0) - INFO - [12/20]
+2025-05-22 11:45:12,345 - train(rank0) - INFO - [16/20]
+2025-05-22 11:45:14,509 - train(rank0) - INFO -     epoch          : 26
+2025-05-22 11:45:14,510 - train(rank0) - INFO -     loss           : 0.16794358715415
+2025-05-22 11:45:14,511 - train(rank0) - INFO -     loss_mbce      : 0.04693153444677591
+2025-05-22 11:45:14,511 - train(rank0) - INFO -     loss_pkd       : 0.005192091062781401
+2025-05-22 11:45:14,511 - train(rank0) - INFO -     loss_cont      : 0.05234073653817176
+2025-05-22 11:45:14,511 - train(rank0) - INFO -     loss_uncer     : 0.06347922444343568
+2025-05-22 11:45:14,565 - train(rank0) - INFO - Epoch - 27
+2025-05-22 11:45:21,095 - train(rank0) - INFO - lr[0]: 0.000060 / lr[1]: 0.000600 / lr[2]: 0.000600
+2025-05-22 11:45:21,095 - train(rank0) - INFO - [0/20]
+2025-05-22 11:45:23,418 - train(rank0) - INFO - [4/20]
+2025-05-22 11:45:25,703 - train(rank0) - INFO - [8/20]
+2025-05-22 11:45:27,879 - train(rank0) - INFO - [12/20]
+2025-05-22 11:45:30,233 - train(rank0) - INFO - [16/20]
+2025-05-22 11:45:32,403 - train(rank0) - INFO -     epoch          : 27
+2025-05-22 11:45:32,404 - train(rank0) - INFO -     loss           : 0.1785559482872486
+2025-05-22 11:45:32,404 - train(rank0) - INFO -     loss_mbce      : 0.05436707567423582
+2025-05-22 11:45:32,405 - train(rank0) - INFO -     loss_pkd       : 0.007782941494951956
+2025-05-22 11:45:32,405 - train(rank0) - INFO -     loss_cont      : 0.05335141181945802
+2025-05-22 11:45:32,405 - train(rank0) - INFO -     loss_uncer     : 0.06305451855063439
+2025-05-22 11:45:32,424 - train(rank0) - INFO - Epoch - 28
+2025-05-22 11:45:38,842 - train(rank0) - INFO - lr[0]: 0.000058 / lr[1]: 0.000584 / lr[2]: 0.000584
+2025-05-22 11:45:38,843 - train(rank0) - INFO - [0/20]
+2025-05-22 11:45:41,143 - train(rank0) - INFO - [4/20]
+2025-05-22 11:45:43,516 - train(rank0) - INFO - [8/20]
+2025-05-22 11:45:45,873 - train(rank0) - INFO - [12/20]
+2025-05-22 11:45:48,213 - train(rank0) - INFO - [16/20]
+2025-05-22 11:45:50,356 - train(rank0) - INFO -     epoch          : 28
+2025-05-22 11:45:50,357 - train(rank0) - INFO -     loss           : 0.16683192253112794
+2025-05-22 11:45:50,357 - train(rank0) - INFO -     loss_mbce      : 0.04504382750019431
+2025-05-22 11:45:50,357 - train(rank0) - INFO -     loss_pkd       : 0.0041050537474802695
+2025-05-22 11:45:50,357 - train(rank0) - INFO -     loss_cont      : 0.052507136464118954
+2025-05-22 11:45:50,358 - train(rank0) - INFO -     loss_uncer     : 0.06517590254545211
+2025-05-22 11:45:50,372 - train(rank0) - INFO - Epoch - 29
+2025-05-22 11:45:56,461 - train(rank0) - INFO - lr[0]: 0.000057 / lr[1]: 0.000568 / lr[2]: 0.000568
+2025-05-22 11:45:56,461 - train(rank0) - INFO - [0/20]
+2025-05-22 11:45:58,784 - train(rank0) - INFO - [4/20]
+2025-05-22 11:46:01,178 - train(rank0) - INFO - [8/20]
+2025-05-22 11:46:03,476 - train(rank0) - INFO - [12/20]
+2025-05-22 11:46:05,852 - train(rank0) - INFO - [16/20]
+2025-05-22 11:46:08,121 - train(rank0) - INFO -     epoch          : 29
+2025-05-22 11:46:08,122 - train(rank0) - INFO -     loss           : 0.17352290377020835
+2025-05-22 11:46:08,122 - train(rank0) - INFO -     loss_mbce      : 0.05166668565943837
+2025-05-22 11:46:08,122 - train(rank0) - INFO -     loss_pkd       : 0.006463233396061696
+2025-05-22 11:46:08,122 - train(rank0) - INFO -     loss_cont      : 0.05235580295324325
+2025-05-22 11:46:08,122 - train(rank0) - INFO -     loss_uncer     : 0.06303718239068985
+2025-05-22 11:46:08,128 - train(rank0) - INFO - Epoch - 30
+2025-05-22 11:46:14,377 - train(rank0) - INFO - lr[0]: 0.000055 / lr[1]: 0.000552 / lr[2]: 0.000552
+2025-05-22 11:46:14,377 - train(rank0) - INFO - [0/20]
+2025-05-22 11:46:16,752 - train(rank0) - INFO - [4/20]
+2025-05-22 11:46:19,068 - train(rank0) - INFO - [8/20]
+2025-05-22 11:46:21,379 - train(rank0) - INFO - [12/20]
+2025-05-22 11:46:23,667 - train(rank0) - INFO - [16/20]
+2025-05-22 11:46:25,892 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:46:30,085 - train(rank0) - INFO -     epoch          : 30
+2025-05-22 11:46:30,085 - train(rank0) - INFO -     loss           : 0.17066698297858238
+2025-05-22 11:46:30,085 - train(rank0) - INFO -     loss_mbce      : 0.04635579949244857
+2025-05-22 11:46:30,085 - train(rank0) - INFO -     loss_pkd       : 0.005694820254575461
+2025-05-22 11:46:30,085 - train(rank0) - INFO -     loss_cont      : 0.05364424183964729
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     loss_uncer     : 0.06497212052345278
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.21
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 47.51
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 61.01
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 81.29
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.21
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 47.51
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 61.01
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 66.36
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.21
+16 *pottedplant 47.51
+
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 80.61
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 46.44
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 58.93
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 63.52
+2025-05-22 11:46:30,086 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 80.61
+16 *pottedplant 46.44
+
+2025-05-22 11:46:30,795 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:46:30,796 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:46:35,949 - train(rank0) - INFO - [0/20]
+2025-05-22 11:46:36,439 - train(rank0) - INFO - [4/20]
+2025-05-22 11:46:36,935 - train(rank0) - INFO - [8/20]
+2025-05-22 11:46:37,425 - train(rank0) - INFO - [12/20]
+2025-05-22 11:46:37,915 - train(rank0) - INFO - [16/20]
+2025-05-22 11:46:38,723 - train(rank0) - INFO - computing noise...
+2025-05-22 11:46:44,315 - train(rank0) - INFO - [0/20]
+2025-05-22 11:46:44,831 - train(rank0) - INFO - [4/20]
+2025-05-22 11:46:45,328 - train(rank0) - INFO - [8/20]
+2025-05-22 11:46:45,821 - train(rank0) - INFO - [12/20]
+2025-05-22 11:46:46,316 - train(rank0) - INFO - [16/20]
+2025-05-22 11:46:47,097 - train(rank0) - INFO - Epoch - 31
+2025-05-22 11:46:53,153 - train(rank0) - INFO - lr[0]: 0.000054 / lr[1]: 0.000536 / lr[2]: 0.000536
+2025-05-22 11:46:53,153 - train(rank0) - INFO - [0/20]
+2025-05-22 11:46:55,478 - train(rank0) - INFO - [4/20]
+2025-05-22 11:46:57,798 - train(rank0) - INFO - [8/20]
+2025-05-22 11:47:00,148 - train(rank0) - INFO - [12/20]
+2025-05-22 11:47:02,509 - train(rank0) - INFO - [16/20]
+2025-05-22 11:47:04,781 - train(rank0) - INFO -     epoch          : 31
+2025-05-22 11:47:04,782 - train(rank0) - INFO -     loss           : 0.17429947033524512
+2025-05-22 11:47:04,782 - train(rank0) - INFO -     loss_mbce      : 0.0523678757250309
+2025-05-22 11:47:04,782 - train(rank0) - INFO -     loss_pkd       : 0.005846299041877501
+2025-05-22 11:47:04,782 - train(rank0) - INFO -     loss_cont      : 0.05266660690307616
+2025-05-22 11:47:04,782 - train(rank0) - INFO -     loss_uncer     : 0.06341868296265601
+2025-05-22 11:47:04,790 - train(rank0) - INFO - Epoch - 32
+2025-05-22 11:47:11,341 - train(rank0) - INFO - lr[0]: 0.000052 / lr[1]: 0.000520 / lr[2]: 0.000520
+2025-05-22 11:47:11,341 - train(rank0) - INFO - [0/20]
+2025-05-22 11:47:13,705 - train(rank0) - INFO - [4/20]
+2025-05-22 11:47:16,064 - train(rank0) - INFO - [8/20]
+2025-05-22 11:47:18,426 - train(rank0) - INFO - [12/20]
+2025-05-22 11:47:20,701 - train(rank0) - INFO - [16/20]
+2025-05-22 11:47:22,903 - train(rank0) - INFO -     epoch          : 32
+2025-05-22 11:47:22,904 - train(rank0) - INFO -     loss           : 0.17240154668688773
+2025-05-22 11:47:22,905 - train(rank0) - INFO -     loss_mbce      : 0.04875935572199523
+2025-05-22 11:47:22,905 - train(rank0) - INFO -     loss_pkd       : 0.006549969024490565
+2025-05-22 11:47:22,905 - train(rank0) - INFO -     loss_cont      : 0.052159605324268346
+2025-05-22 11:47:22,905 - train(rank0) - INFO -     loss_uncer     : 0.06493261411786078
+2025-05-22 11:47:22,914 - train(rank0) - INFO - Epoch - 33
+2025-05-22 11:47:28,993 - train(rank0) - INFO - lr[0]: 0.000050 / lr[1]: 0.000504 / lr[2]: 0.000504
+2025-05-22 11:47:28,993 - train(rank0) - INFO - [0/20]
+2025-05-22 11:47:31,283 - train(rank0) - INFO - [4/20]
+2025-05-22 11:47:33,626 - train(rank0) - INFO - [8/20]
+2025-05-22 11:47:35,906 - train(rank0) - INFO - [12/20]
+2025-05-22 11:47:38,074 - train(rank0) - INFO - [16/20]
+2025-05-22 11:47:40,300 - train(rank0) - INFO -     epoch          : 33
+2025-05-22 11:47:40,301 - train(rank0) - INFO -     loss           : 0.17340963706374168
+2025-05-22 11:47:40,301 - train(rank0) - INFO -     loss_mbce      : 0.05047705778852105
+2025-05-22 11:47:40,301 - train(rank0) - INFO -     loss_pkd       : 0.0067732337265624665
+2025-05-22 11:47:40,301 - train(rank0) - INFO -     loss_cont      : 0.05313594967126846
+2025-05-22 11:47:40,302 - train(rank0) - INFO -     loss_uncer     : 0.06302339166402816
+2025-05-22 11:47:40,337 - train(rank0) - INFO - Epoch - 34
+2025-05-22 11:47:46,615 - train(rank0) - INFO - lr[0]: 0.000049 / lr[1]: 0.000487 / lr[2]: 0.000487
+2025-05-22 11:47:46,615 - train(rank0) - INFO - [0/20]
+2025-05-22 11:47:48,953 - train(rank0) - INFO - [4/20]
+2025-05-22 11:47:51,243 - train(rank0) - INFO - [8/20]
+2025-05-22 11:47:53,525 - train(rank0) - INFO - [12/20]
+2025-05-22 11:47:55,845 - train(rank0) - INFO - [16/20]
+2025-05-22 11:47:58,028 - train(rank0) - INFO -     epoch          : 34
+2025-05-22 11:47:58,028 - train(rank0) - INFO -     loss           : 0.16768383607268333
+2025-05-22 11:47:58,029 - train(rank0) - INFO -     loss_mbce      : 0.046004207571968436
+2025-05-22 11:47:58,029 - train(rank0) - INFO -     loss_pkd       : 0.005608157138340175
+2025-05-22 11:47:58,029 - train(rank0) - INFO -     loss_cont      : 0.05351864337921144
+2025-05-22 11:47:58,029 - train(rank0) - INFO -     loss_uncer     : 0.06255282536149023
+2025-05-22 11:47:58,046 - train(rank0) - INFO - Epoch - 35
+2025-05-22 11:48:03,982 - train(rank0) - INFO - lr[0]: 0.000047 / lr[1]: 0.000471 / lr[2]: 0.000471
+2025-05-22 11:48:03,982 - train(rank0) - INFO - [0/20]
+2025-05-22 11:48:06,300 - train(rank0) - INFO - [4/20]
+2025-05-22 11:48:08,580 - train(rank0) - INFO - [8/20]
+2025-05-22 11:48:10,912 - train(rank0) - INFO - [12/20]
+2025-05-22 11:48:13,282 - train(rank0) - INFO - [16/20]
+2025-05-22 11:48:15,370 - train(rank0) - INFO -     epoch          : 35
+2025-05-22 11:48:15,371 - train(rank0) - INFO -     loss           : 0.17007112950086595
+2025-05-22 11:48:15,371 - train(rank0) - INFO -     loss_mbce      : 0.04577193558216095
+2025-05-22 11:48:15,371 - train(rank0) - INFO -     loss_pkd       : 0.0056447087627020665
+2025-05-22 11:48:15,371 - train(rank0) - INFO -     loss_cont      : 0.05214639589190484
+2025-05-22 11:48:15,371 - train(rank0) - INFO -     loss_uncer     : 0.06650808781385423
+2025-05-22 11:48:15,425 - train(rank0) - INFO - Epoch - 36
+2025-05-22 11:48:21,335 - train(rank0) - INFO - lr[0]: 0.000045 / lr[1]: 0.000455 / lr[2]: 0.000455
+2025-05-22 11:48:21,335 - train(rank0) - INFO - [0/20]
+2025-05-22 11:48:23,700 - train(rank0) - INFO - [4/20]
+2025-05-22 11:48:25,991 - train(rank0) - INFO - [8/20]
+2025-05-22 11:48:28,388 - train(rank0) - INFO - [12/20]
+2025-05-22 11:48:30,670 - train(rank0) - INFO - [16/20]
+2025-05-22 11:48:32,961 - train(rank0) - INFO -     epoch          : 36
+2025-05-22 11:48:32,962 - train(rank0) - INFO -     loss           : 0.16846925690770148
+2025-05-22 11:48:32,963 - train(rank0) - INFO -     loss_mbce      : 0.04682209901511669
+2025-05-22 11:48:32,963 - train(rank0) - INFO -     loss_pkd       : 0.00795413792366162
+2025-05-22 11:48:32,963 - train(rank0) - INFO -     loss_cont      : 0.05252171292901039
+2025-05-22 11:48:32,963 - train(rank0) - INFO -     loss_uncer     : 0.061171305477619176
+2025-05-22 11:48:32,973 - train(rank0) - INFO - Epoch - 37
+2025-05-22 11:48:39,936 - train(rank0) - INFO - lr[0]: 0.000044 / lr[1]: 0.000438 / lr[2]: 0.000438
+2025-05-22 11:48:39,936 - train(rank0) - INFO - [0/20]
+2025-05-22 11:48:42,215 - train(rank0) - INFO - [4/20]
+2025-05-22 11:48:44,582 - train(rank0) - INFO - [8/20]
+2025-05-22 11:48:46,856 - train(rank0) - INFO - [12/20]
+2025-05-22 11:48:49,164 - train(rank0) - INFO - [16/20]
+2025-05-22 11:48:51,395 - train(rank0) - INFO -     epoch          : 37
+2025-05-22 11:48:51,396 - train(rank0) - INFO -     loss           : 0.1707130990922451
+2025-05-22 11:48:51,397 - train(rank0) - INFO -     loss_mbce      : 0.04922437919303775
+2025-05-22 11:48:51,397 - train(rank0) - INFO -     loss_pkd       : 0.004674985058954917
+2025-05-22 11:48:51,397 - train(rank0) - INFO -     loss_cont      : 0.052666828185319904
+2025-05-22 11:48:51,397 - train(rank0) - INFO -     loss_uncer     : 0.06414690509438514
+2025-05-22 11:48:51,406 - train(rank0) - INFO - Epoch - 38
+2025-05-22 11:48:57,646 - train(rank0) - INFO - lr[0]: 0.000042 / lr[1]: 0.000422 / lr[2]: 0.000422
+2025-05-22 11:48:57,646 - train(rank0) - INFO - [0/20]
+2025-05-22 11:48:59,978 - train(rank0) - INFO - [4/20]
+2025-05-22 11:49:02,141 - train(rank0) - INFO - [8/20]
+2025-05-22 11:49:04,447 - train(rank0) - INFO - [12/20]
+2025-05-22 11:49:06,804 - train(rank0) - INFO - [16/20]
+2025-05-22 11:49:09,065 - train(rank0) - INFO -     epoch          : 38
+2025-05-22 11:49:09,066 - train(rank0) - INFO -     loss           : 0.16737753450870513
+2025-05-22 11:49:09,066 - train(rank0) - INFO -     loss_mbce      : 0.04673946285620332
+2025-05-22 11:49:09,067 - train(rank0) - INFO -     loss_pkd       : 0.004721519384474959
+2025-05-22 11:49:09,067 - train(rank0) - INFO -     loss_cont      : 0.050524929314851766
+2025-05-22 11:49:09,067 - train(rank0) - INFO -     loss_uncer     : 0.0653916198015213
+2025-05-22 11:49:09,078 - train(rank0) - INFO - Epoch - 39
+2025-05-22 11:49:15,187 - train(rank0) - INFO - lr[0]: 0.000041 / lr[1]: 0.000405 / lr[2]: 0.000405
+2025-05-22 11:49:15,187 - train(rank0) - INFO - [0/20]
+2025-05-22 11:49:17,504 - train(rank0) - INFO - [4/20]
+2025-05-22 11:49:19,881 - train(rank0) - INFO - [8/20]
+2025-05-22 11:49:22,160 - train(rank0) - INFO - [12/20]
+2025-05-22 11:49:24,482 - train(rank0) - INFO - [16/20]
+2025-05-22 11:49:26,698 - train(rank0) - INFO -     epoch          : 39
+2025-05-22 11:49:26,699 - train(rank0) - INFO -     loss           : 0.1628239221870899
+2025-05-22 11:49:26,701 - train(rank0) - INFO -     loss_mbce      : 0.03829567367210984
+2025-05-22 11:49:26,701 - train(rank0) - INFO -     loss_pkd       : 0.005507351568667218
+2025-05-22 11:49:26,701 - train(rank0) - INFO -     loss_cont      : 0.05323046743869782
+2025-05-22 11:49:26,701 - train(rank0) - INFO -     loss_uncer     : 0.06579042702913285
+2025-05-22 11:49:26,714 - train(rank0) - INFO - Epoch - 40
+2025-05-22 11:49:32,959 - train(rank0) - INFO - lr[0]: 0.000039 / lr[1]: 0.000389 / lr[2]: 0.000389
+2025-05-22 11:49:32,959 - train(rank0) - INFO - [0/20]
+2025-05-22 11:49:35,325 - train(rank0) - INFO - [4/20]
+2025-05-22 11:49:37,639 - train(rank0) - INFO - [8/20]
+2025-05-22 11:49:39,974 - train(rank0) - INFO - [12/20]
+2025-05-22 11:49:42,347 - train(rank0) - INFO - [16/20]
+2025-05-22 11:49:44,624 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:49:48,625 - train(rank0) - INFO -     epoch          : 40
+2025-05-22 11:49:48,626 - train(rank0) - INFO -     loss           : 0.16703544929623604
+2025-05-22 11:49:48,626 - train(rank0) - INFO -     loss_mbce      : 0.04715214427560568
+2025-05-22 11:49:48,627 - train(rank0) - INFO -     loss_pkd       : 0.006237023444555234
+2025-05-22 11:49:48,627 - train(rank0) - INFO -     loss_cont      : 0.052074621468782424
+2025-05-22 11:49:48,627 - train(rank0) - INFO -     loss_uncer     : 0.06157165914773941
+2025-05-22 11:49:48,627 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.16
+2025-05-22 11:49:48,627 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 49.18
+2025-05-22 11:49:48,628 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 62.36
+2025-05-22 11:49:48,628 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 81.43
+2025-05-22 11:49:48,628 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.16
+2025-05-22 11:49:48,628 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 49.18
+2025-05-22 11:49:48,628 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 62.36
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 67.17
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.16
+16 *pottedplant 49.18
+
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 80.71
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 47.98
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 60.18
+2025-05-22 11:49:48,629 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 64.34
+2025-05-22 11:49:48,630 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 80.71
+16 *pottedplant 47.98
+
+2025-05-22 11:49:49,404 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:49:49,405 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:49:54,840 - train(rank0) - INFO - [0/20]
+2025-05-22 11:49:55,334 - train(rank0) - INFO - [4/20]
+2025-05-22 11:49:55,822 - train(rank0) - INFO - [8/20]
+2025-05-22 11:49:56,310 - train(rank0) - INFO - [12/20]
+2025-05-22 11:49:56,804 - train(rank0) - INFO - [16/20]
+2025-05-22 11:49:57,519 - train(rank0) - INFO - computing noise...
+2025-05-22 11:50:02,949 - train(rank0) - INFO - [0/20]
+2025-05-22 11:50:03,444 - train(rank0) - INFO - [4/20]
+2025-05-22 11:50:03,942 - train(rank0) - INFO - [8/20]
+2025-05-22 11:50:04,438 - train(rank0) - INFO - [12/20]
+2025-05-22 11:50:04,933 - train(rank0) - INFO - [16/20]
+2025-05-22 11:50:05,752 - train(rank0) - INFO - Epoch - 41
+2025-05-22 11:50:11,954 - train(rank0) - INFO - lr[0]: 0.000037 / lr[1]: 0.000372 / lr[2]: 0.000372
+2025-05-22 11:50:11,954 - train(rank0) - INFO - [0/20]
+2025-05-22 11:50:14,266 - train(rank0) - INFO - [4/20]
+2025-05-22 11:50:16,545 - train(rank0) - INFO - [8/20]
+2025-05-22 11:50:18,860 - train(rank0) - INFO - [12/20]
+2025-05-22 11:50:21,141 - train(rank0) - INFO - [16/20]
+2025-05-22 11:50:23,307 - train(rank0) - INFO -     epoch          : 41
+2025-05-22 11:50:23,308 - train(rank0) - INFO -     loss           : 0.1738590955734253
+2025-05-22 11:50:23,308 - train(rank0) - INFO -     loss_mbce      : 0.050109336245805026
+2025-05-22 11:50:23,309 - train(rank0) - INFO -     loss_pkd       : 0.006973402967560105
+2025-05-22 11:50:23,309 - train(rank0) - INFO -     loss_cont      : 0.05087062448263169
+2025-05-22 11:50:23,309 - train(rank0) - INFO -     loss_uncer     : 0.06590572774410249
+2025-05-22 11:50:23,334 - train(rank0) - INFO - Epoch - 42
+2025-05-22 11:50:29,416 - train(rank0) - INFO - lr[0]: 0.000036 / lr[1]: 0.000355 / lr[2]: 0.000355
+2025-05-22 11:50:29,417 - train(rank0) - INFO - [0/20]
+2025-05-22 11:50:31,720 - train(rank0) - INFO - [4/20]
+2025-05-22 11:50:34,121 - train(rank0) - INFO - [8/20]
+2025-05-22 11:50:36,460 - train(rank0) - INFO - [12/20]
+2025-05-22 11:50:38,783 - train(rank0) - INFO - [16/20]
+2025-05-22 11:50:40,999 - train(rank0) - INFO -     epoch          : 42
+2025-05-22 11:50:41,001 - train(rank0) - INFO -     loss           : 0.16805435866117477
+2025-05-22 11:50:41,001 - train(rank0) - INFO -     loss_mbce      : 0.04920497089624405
+2025-05-22 11:50:41,001 - train(rank0) - INFO -     loss_pkd       : 0.006296721134276595
+2025-05-22 11:50:41,002 - train(rank0) - INFO -     loss_cont      : 0.05087402507662773
+2025-05-22 11:50:41,002 - train(rank0) - INFO -     loss_uncer     : 0.06167864084243774
+2025-05-22 11:50:41,046 - train(rank0) - INFO - Epoch - 43
+2025-05-22 11:50:47,112 - train(rank0) - INFO - lr[0]: 0.000034 / lr[1]: 0.000338 / lr[2]: 0.000338
+2025-05-22 11:50:47,113 - train(rank0) - INFO - [0/20]
+2025-05-22 11:50:49,428 - train(rank0) - INFO - [4/20]
+2025-05-22 11:50:51,757 - train(rank0) - INFO - [8/20]
+2025-05-22 11:50:54,048 - train(rank0) - INFO - [12/20]
+2025-05-22 11:50:56,381 - train(rank0) - INFO - [16/20]
+2025-05-22 11:50:58,513 - train(rank0) - INFO -     epoch          : 43
+2025-05-22 11:50:58,515 - train(rank0) - INFO -     loss           : 0.16767943799495696
+2025-05-22 11:50:58,515 - train(rank0) - INFO -     loss_mbce      : 0.04534608549438417
+2025-05-22 11:50:58,515 - train(rank0) - INFO -     loss_pkd       : 0.005366607845644467
+2025-05-22 11:50:58,515 - train(rank0) - INFO -     loss_cont      : 0.05249163582921028
+2025-05-22 11:50:58,515 - train(rank0) - INFO -     loss_uncer     : 0.06447510838508605
+2025-05-22 11:50:58,576 - train(rank0) - INFO - Epoch - 44
+2025-05-22 11:51:04,641 - train(rank0) - INFO - lr[0]: 0.000032 / lr[1]: 0.000321 / lr[2]: 0.000321
+2025-05-22 11:51:04,641 - train(rank0) - INFO - [0/20]
+2025-05-22 11:51:07,029 - train(rank0) - INFO - [4/20]
+2025-05-22 11:51:09,336 - train(rank0) - INFO - [8/20]
+2025-05-22 11:51:11,606 - train(rank0) - INFO - [12/20]
+2025-05-22 11:51:13,942 - train(rank0) - INFO - [16/20]
+2025-05-22 11:51:16,132 - train(rank0) - INFO -     epoch          : 44
+2025-05-22 11:51:16,133 - train(rank0) - INFO -     loss           : 0.17084669545292855
+2025-05-22 11:51:16,133 - train(rank0) - INFO -     loss_mbce      : 0.046442889142781496
+2025-05-22 11:51:16,133 - train(rank0) - INFO -     loss_pkd       : 0.005970809223072138
+2025-05-22 11:51:16,133 - train(rank0) - INFO -     loss_cont      : 0.0521684855222702
+2025-05-22 11:51:16,133 - train(rank0) - INFO -     loss_uncer     : 0.06626450911164285
+2025-05-22 11:51:16,142 - train(rank0) - INFO - Epoch - 45
+2025-05-22 11:51:22,083 - train(rank0) - INFO - lr[0]: 0.000030 / lr[1]: 0.000304 / lr[2]: 0.000304
+2025-05-22 11:51:22,084 - train(rank0) - INFO - [0/20]
+2025-05-22 11:51:24,478 - train(rank0) - INFO - [4/20]
+2025-05-22 11:51:26,743 - train(rank0) - INFO - [8/20]
+2025-05-22 11:51:29,085 - train(rank0) - INFO - [12/20]
+2025-05-22 11:51:31,436 - train(rank0) - INFO - [16/20]
+2025-05-22 11:51:33,644 - train(rank0) - INFO -     epoch          : 45
+2025-05-22 11:51:33,646 - train(rank0) - INFO -     loss           : 0.18723754063248635
+2025-05-22 11:51:33,646 - train(rank0) - INFO -     loss_mbce      : 0.05754822250455618
+2025-05-22 11:51:33,646 - train(rank0) - INFO -     loss_pkd       : 0.015314202217268758
+2025-05-22 11:51:33,646 - train(rank0) - INFO -     loss_cont      : 0.052144099622964867
+2025-05-22 11:51:33,647 - train(rank0) - INFO -     loss_uncer     : 0.062231013476848604
+2025-05-22 11:51:33,657 - train(rank0) - INFO - Epoch - 46
+2025-05-22 11:51:39,660 - train(rank0) - INFO - lr[0]: 0.000029 / lr[1]: 0.000287 / lr[2]: 0.000287
+2025-05-22 11:51:39,660 - train(rank0) - INFO - [0/20]
+2025-05-22 11:51:41,956 - train(rank0) - INFO - [4/20]
+2025-05-22 11:51:44,260 - train(rank0) - INFO - [8/20]
+2025-05-22 11:51:46,513 - train(rank0) - INFO - [12/20]
+2025-05-22 11:51:48,711 - train(rank0) - INFO - [16/20]
+2025-05-22 11:51:50,953 - train(rank0) - INFO -     epoch          : 46
+2025-05-22 11:51:50,954 - train(rank0) - INFO -     loss           : 0.16639376543462275
+2025-05-22 11:51:50,954 - train(rank0) - INFO -     loss_mbce      : 0.04635660285130143
+2025-05-22 11:51:50,954 - train(rank0) - INFO -     loss_pkd       : 0.005116467000334524
+2025-05-22 11:51:50,954 - train(rank0) - INFO -     loss_cont      : 0.0509612487256527
+2025-05-22 11:51:50,955 - train(rank0) - INFO -     loss_uncer     : 0.06395944267511368
+2025-05-22 11:51:50,963 - train(rank0) - INFO - Epoch - 47
+2025-05-22 11:51:56,936 - train(rank0) - INFO - lr[0]: 0.000027 / lr[1]: 0.000270 / lr[2]: 0.000270
+2025-05-22 11:51:56,936 - train(rank0) - INFO - [0/20]
+2025-05-22 11:51:59,246 - train(rank0) - INFO - [4/20]
+2025-05-22 11:52:01,610 - train(rank0) - INFO - [8/20]
+2025-05-22 11:52:03,835 - train(rank0) - INFO - [12/20]
+2025-05-22 11:52:06,223 - train(rank0) - INFO - [16/20]
+2025-05-22 11:52:08,395 - train(rank0) - INFO -     epoch          : 47
+2025-05-22 11:52:08,395 - train(rank0) - INFO -     loss           : 0.16880491077899934
+2025-05-22 11:52:08,395 - train(rank0) - INFO -     loss_mbce      : 0.04704203754663468
+2025-05-22 11:52:08,396 - train(rank0) - INFO -     loss_pkd       : 0.006548797537107021
+2025-05-22 11:52:08,396 - train(rank0) - INFO -     loss_cont      : 0.05108902469277382
+2025-05-22 11:52:08,396 - train(rank0) - INFO -     loss_uncer     : 0.0641250488162041
+2025-05-22 11:52:08,406 - train(rank0) - INFO - Epoch - 48
+2025-05-22 11:52:14,548 - train(rank0) - INFO - lr[0]: 0.000025 / lr[1]: 0.000252 / lr[2]: 0.000252
+2025-05-22 11:52:14,548 - train(rank0) - INFO - [0/20]
+2025-05-22 11:52:16,942 - train(rank0) - INFO - [4/20]
+2025-05-22 11:52:19,231 - train(rank0) - INFO - [8/20]
+2025-05-22 11:52:21,559 - train(rank0) - INFO - [12/20]
+2025-05-22 11:52:23,862 - train(rank0) - INFO - [16/20]
+2025-05-22 11:52:25,954 - train(rank0) - INFO -     epoch          : 48
+2025-05-22 11:52:25,955 - train(rank0) - INFO -     loss           : 0.16403787657618524
+2025-05-22 11:52:25,955 - train(rank0) - INFO -     loss_mbce      : 0.040988098038360475
+2025-05-22 11:52:25,955 - train(rank0) - INFO -     loss_pkd       : 0.0052169194095768034
+2025-05-22 11:52:25,955 - train(rank0) - INFO -     loss_cont      : 0.051586266160011295
+2025-05-22 11:52:25,956 - train(rank0) - INFO -     loss_uncer     : 0.06624659091234206
+2025-05-22 11:52:26,024 - train(rank0) - INFO - Epoch - 49
+2025-05-22 11:52:31,787 - train(rank0) - INFO - lr[0]: 0.000023 / lr[1]: 0.000235 / lr[2]: 0.000235
+2025-05-22 11:52:31,787 - train(rank0) - INFO - [0/20]
+2025-05-22 11:52:34,105 - train(rank0) - INFO - [4/20]
+2025-05-22 11:52:36,470 - train(rank0) - INFO - [8/20]
+2025-05-22 11:52:38,795 - train(rank0) - INFO - [12/20]
+2025-05-22 11:52:41,090 - train(rank0) - INFO - [16/20]
+2025-05-22 11:52:43,227 - train(rank0) - INFO -     epoch          : 49
+2025-05-22 11:52:43,228 - train(rank0) - INFO -     loss           : 0.16494167894124984
+2025-05-22 11:52:43,229 - train(rank0) - INFO -     loss_mbce      : 0.045514125097543004
+2025-05-22 11:52:43,229 - train(rank0) - INFO -     loss_pkd       : 0.006321478067548014
+2025-05-22 11:52:43,229 - train(rank0) - INFO -     loss_cont      : 0.052114506661891935
+2025-05-22 11:52:43,229 - train(rank0) - INFO -     loss_uncer     : 0.060991567224264145
+2025-05-22 11:52:43,278 - train(rank0) - INFO - Epoch - 50
+2025-05-22 11:52:49,449 - train(rank0) - INFO - lr[0]: 0.000022 / lr[1]: 0.000217 / lr[2]: 0.000217
+2025-05-22 11:52:49,450 - train(rank0) - INFO - [0/20]
+2025-05-22 11:52:51,737 - train(rank0) - INFO - [4/20]
+2025-05-22 11:52:54,102 - train(rank0) - INFO - [8/20]
+2025-05-22 11:52:56,426 - train(rank0) - INFO - [12/20]
+2025-05-22 11:52:58,766 - train(rank0) - INFO - [16/20]
+2025-05-22 11:53:00,974 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:53:05,193 - train(rank0) - INFO -     epoch          : 50
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     loss           : 0.16798938810825348
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     loss_mbce      : 0.045848417840898034
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     loss_pkd       : 0.0077343744051177055
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     loss_cont      : 0.05121774986386298
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     loss_uncer     : 0.06318884253501891
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.09
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 50.94
+2025-05-22 11:53:05,194 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 63.73
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 81.54
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.09
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 50.94
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 63.73
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 68.02
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.09
+16 *pottedplant 50.94
+
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 80.79
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 49.53
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 61.41
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 65.16
+2025-05-22 11:53:05,195 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 80.79
+16 *pottedplant 49.53
+
+2025-05-22 11:53:05,885 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:53:05,886 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:53:11,034 - train(rank0) - INFO - [0/20]
+2025-05-22 11:53:11,657 - train(rank0) - INFO - [4/20]
+2025-05-22 11:53:12,145 - train(rank0) - INFO - [8/20]
+2025-05-22 11:53:12,636 - train(rank0) - INFO - [12/20]
+2025-05-22 11:53:13,127 - train(rank0) - INFO - [16/20]
+2025-05-22 11:53:13,872 - train(rank0) - INFO - computing noise...
+2025-05-22 11:53:19,392 - train(rank0) - INFO - [0/20]
+2025-05-22 11:53:19,906 - train(rank0) - INFO - [4/20]
+2025-05-22 11:53:20,406 - train(rank0) - INFO - [8/20]
+2025-05-22 11:53:20,900 - train(rank0) - INFO - [12/20]
+2025-05-22 11:53:21,397 - train(rank0) - INFO - [16/20]
+2025-05-22 11:53:22,151 - train(rank0) - INFO - Epoch - 51
+2025-05-22 11:53:28,073 - train(rank0) - INFO - lr[0]: 0.000020 / lr[1]: 0.000199 / lr[2]: 0.000199
+2025-05-22 11:53:28,073 - train(rank0) - INFO - [0/20]
+2025-05-22 11:53:30,389 - train(rank0) - INFO - [4/20]
+2025-05-22 11:53:32,510 - train(rank0) - INFO - [8/20]
+2025-05-22 11:53:34,753 - train(rank0) - INFO - [12/20]
+2025-05-22 11:53:37,039 - train(rank0) - INFO - [16/20]
+2025-05-22 11:53:39,211 - train(rank0) - INFO -     epoch          : 51
+2025-05-22 11:53:39,212 - train(rank0) - INFO -     loss           : 0.16452591866254807
+2025-05-22 11:53:39,212 - train(rank0) - INFO -     loss_mbce      : 0.04574107620865107
+2025-05-22 11:53:39,212 - train(rank0) - INFO -     loss_pkd       : 0.004879000669461675
+2025-05-22 11:53:39,212 - train(rank0) - INFO -     loss_cont      : 0.05131887584924699
+2025-05-22 11:53:39,213 - train(rank0) - INFO -     loss_uncer     : 0.06258696392178535
+2025-05-22 11:53:39,239 - train(rank0) - INFO - Epoch - 52
+2025-05-22 11:53:45,280 - train(rank0) - INFO - lr[0]: 0.000018 / lr[1]: 0.000181 / lr[2]: 0.000181
+2025-05-22 11:53:45,280 - train(rank0) - INFO - [0/20]
+2025-05-22 11:53:47,599 - train(rank0) - INFO - [4/20]
+2025-05-22 11:53:49,949 - train(rank0) - INFO - [8/20]
+2025-05-22 11:53:52,322 - train(rank0) - INFO - [12/20]
+2025-05-22 11:53:54,657 - train(rank0) - INFO - [16/20]
+2025-05-22 11:53:56,788 - train(rank0) - INFO -     epoch          : 52
+2025-05-22 11:53:56,789 - train(rank0) - INFO -     loss           : 0.169230342656374
+2025-05-22 11:53:56,789 - train(rank0) - INFO -     loss_mbce      : 0.04732190645299852
+2025-05-22 11:53:56,789 - train(rank0) - INFO -     loss_pkd       : 0.007311598026717547
+2025-05-22 11:53:56,789 - train(rank0) - INFO -     loss_cont      : 0.050611294209957115
+2025-05-22 11:53:56,789 - train(rank0) - INFO -     loss_uncer     : 0.06398554041981697
+2025-05-22 11:53:56,830 - train(rank0) - INFO - Epoch - 53
+2025-05-22 11:54:03,040 - train(rank0) - INFO - lr[0]: 0.000016 / lr[1]: 0.000163 / lr[2]: 0.000163
+2025-05-22 11:54:03,040 - train(rank0) - INFO - [0/20]
+2025-05-22 11:54:05,384 - train(rank0) - INFO - [4/20]
+2025-05-22 11:54:07,617 - train(rank0) - INFO - [8/20]
+2025-05-22 11:54:09,934 - train(rank0) - INFO - [12/20]
+2025-05-22 11:54:12,197 - train(rank0) - INFO - [16/20]
+2025-05-22 11:54:14,444 - train(rank0) - INFO -     epoch          : 53
+2025-05-22 11:54:14,444 - train(rank0) - INFO -     loss           : 0.1736384905874729
+2025-05-22 11:54:14,444 - train(rank0) - INFO -     loss_mbce      : 0.04792925203219056
+2025-05-22 11:54:14,445 - train(rank0) - INFO -     loss_pkd       : 0.006991035552346148
+2025-05-22 11:54:14,445 - train(rank0) - INFO -     loss_cont      : 0.05289510682225227
+2025-05-22 11:54:14,445 - train(rank0) - INFO -     loss_uncer     : 0.0658230946958065
+2025-05-22 11:54:14,497 - train(rank0) - INFO - Epoch - 54
+2025-05-22 11:54:20,799 - train(rank0) - INFO - lr[0]: 0.000014 / lr[1]: 0.000145 / lr[2]: 0.000145
+2025-05-22 11:54:20,800 - train(rank0) - INFO - [0/20]
+2025-05-22 11:54:23,072 - train(rank0) - INFO - [4/20]
+2025-05-22 11:54:25,266 - train(rank0) - INFO - [8/20]
+2025-05-22 11:54:27,620 - train(rank0) - INFO - [12/20]
+2025-05-22 11:54:29,773 - train(rank0) - INFO - [16/20]
+2025-05-22 11:54:31,928 - train(rank0) - INFO -     epoch          : 54
+2025-05-22 11:54:31,928 - train(rank0) - INFO -     loss           : 0.16471148729324342
+2025-05-22 11:54:31,929 - train(rank0) - INFO -     loss_mbce      : 0.045308449771255255
+2025-05-22 11:54:31,929 - train(rank0) - INFO -     loss_pkd       : 0.005906304941163398
+2025-05-22 11:54:31,929 - train(rank0) - INFO -     loss_cont      : 0.050424149036407476
+2025-05-22 11:54:31,929 - train(rank0) - INFO -     loss_uncer     : 0.0630725798010826
+2025-05-22 11:54:32,027 - train(rank0) - INFO - Epoch - 55
+2025-05-22 11:54:37,967 - train(rank0) - INFO - lr[0]: 0.000013 / lr[1]: 0.000126 / lr[2]: 0.000126
+2025-05-22 11:54:37,967 - train(rank0) - INFO - [0/20]
+2025-05-22 11:54:40,325 - train(rank0) - INFO - [4/20]
+2025-05-22 11:54:42,609 - train(rank0) - INFO - [8/20]
+2025-05-22 11:54:44,802 - train(rank0) - INFO - [12/20]
+2025-05-22 11:54:47,097 - train(rank0) - INFO - [16/20]
+2025-05-22 11:54:49,215 - train(rank0) - INFO -     epoch          : 55
+2025-05-22 11:54:49,216 - train(rank0) - INFO -     loss           : 0.16557901799678804
+2025-05-22 11:54:49,216 - train(rank0) - INFO -     loss_mbce      : 0.044850815646350385
+2025-05-22 11:54:49,217 - train(rank0) - INFO -     loss_pkd       : 0.006011864192259964
+2025-05-22 11:54:49,217 - train(rank0) - INFO -     loss_cont      : 0.050797979682683944
+2025-05-22 11:54:49,217 - train(rank0) - INFO -     loss_uncer     : 0.06391835659742355
+2025-05-22 11:54:49,266 - train(rank0) - INFO - Epoch - 56
+2025-05-22 11:54:55,387 - train(rank0) - INFO - lr[0]: 0.000011 / lr[1]: 0.000107 / lr[2]: 0.000107
+2025-05-22 11:54:55,387 - train(rank0) - INFO - [0/20]
+2025-05-22 11:54:57,717 - train(rank0) - INFO - [4/20]
+2025-05-22 11:55:00,065 - train(rank0) - INFO - [8/20]
+2025-05-22 11:55:02,408 - train(rank0) - INFO - [12/20]
+2025-05-22 11:55:04,747 - train(rank0) - INFO - [16/20]
+2025-05-22 11:55:06,864 - train(rank0) - INFO -     epoch          : 56
+2025-05-22 11:55:06,864 - train(rank0) - INFO -     loss           : 0.1674151137471199
+2025-05-22 11:55:06,865 - train(rank0) - INFO -     loss_mbce      : 0.049344897549599406
+2025-05-22 11:55:06,865 - train(rank0) - INFO -     loss_pkd       : 0.005639898430672474
+2025-05-22 11:55:06,865 - train(rank0) - INFO -     loss_cont      : 0.05090128749608993
+2025-05-22 11:55:06,865 - train(rank0) - INFO -     loss_uncer     : 0.061529027372598646
+2025-05-22 11:55:06,932 - train(rank0) - INFO - Epoch - 57
+2025-05-22 11:55:13,794 - train(rank0) - INFO - lr[0]: 0.000009 / lr[1]: 0.000087 / lr[2]: 0.000087
+2025-05-22 11:55:13,794 - train(rank0) - INFO - [0/20]
+2025-05-22 11:55:16,152 - train(rank0) - INFO - [4/20]
+2025-05-22 11:55:18,415 - train(rank0) - INFO - [8/20]
+2025-05-22 11:55:20,436 - train(rank0) - INFO - [12/20]
+2025-05-22 11:55:22,783 - train(rank0) - INFO - [16/20]
+2025-05-22 11:55:24,862 - train(rank0) - INFO -     epoch          : 57
+2025-05-22 11:55:24,864 - train(rank0) - INFO -     loss           : 0.1692912645637989
+2025-05-22 11:55:24,865 - train(rank0) - INFO -     loss_mbce      : 0.04830699246376753
+2025-05-22 11:55:24,865 - train(rank0) - INFO -     loss_pkd       : 0.006055620615370572
+2025-05-22 11:55:24,865 - train(rank0) - INFO -     loss_cont      : 0.051088614910840977
+2025-05-22 11:55:24,866 - train(rank0) - INFO -     loss_uncer     : 0.0638400372862816
+2025-05-22 11:55:24,876 - train(rank0) - INFO - Epoch - 58
+2025-05-22 11:55:31,154 - train(rank0) - INFO - lr[0]: 0.000007 / lr[1]: 0.000067 / lr[2]: 0.000067
+2025-05-22 11:55:31,155 - train(rank0) - INFO - [0/20]
+2025-05-22 11:55:33,393 - train(rank0) - INFO - [4/20]
+2025-05-22 11:55:35,676 - train(rank0) - INFO - [8/20]
+2025-05-22 11:55:37,997 - train(rank0) - INFO - [12/20]
+2025-05-22 11:55:40,331 - train(rank0) - INFO - [16/20]
+2025-05-22 11:55:42,505 - train(rank0) - INFO -     epoch          : 58
+2025-05-22 11:55:42,506 - train(rank0) - INFO -     loss           : 0.16642277538776398
+2025-05-22 11:55:42,506 - train(rank0) - INFO -     loss_mbce      : 0.04647805839776993
+2025-05-22 11:55:42,506 - train(rank0) - INFO -     loss_pkd       : 0.0061655397730646655
+2025-05-22 11:55:42,506 - train(rank0) - INFO -     loss_cont      : 0.05087652400135993
+2025-05-22 11:55:42,507 - train(rank0) - INFO -     loss_uncer     : 0.06290265232324599
+2025-05-22 11:55:42,538 - train(rank0) - INFO - Epoch - 59
+2025-05-22 11:55:48,757 - train(rank0) - INFO - lr[0]: 0.000005 / lr[1]: 0.000047 / lr[2]: 0.000047
+2025-05-22 11:55:48,757 - train(rank0) - INFO - [0/20]
+2025-05-22 11:55:51,056 - train(rank0) - INFO - [4/20]
+2025-05-22 11:55:53,376 - train(rank0) - INFO - [8/20]
+2025-05-22 11:55:55,726 - train(rank0) - INFO - [12/20]
+2025-05-22 11:55:58,050 - train(rank0) - INFO - [16/20]
+2025-05-22 11:56:00,299 - train(rank0) - INFO -     epoch          : 59
+2025-05-22 11:56:00,300 - train(rank0) - INFO -     loss           : 0.16804552599787712
+2025-05-22 11:56:00,300 - train(rank0) - INFO -     loss_mbce      : 0.044030050793662664
+2025-05-22 11:56:00,300 - train(rank0) - INFO -     loss_pkd       : 0.006219630246050656
+2025-05-22 11:56:00,301 - train(rank0) - INFO -     loss_cont      : 0.05079203680157661
+2025-05-22 11:56:00,301 - train(rank0) - INFO -     loss_uncer     : 0.06700380623340607
+2025-05-22 11:56:00,310 - train(rank0) - INFO - Epoch - 60
+2025-05-22 11:56:06,342 - train(rank0) - INFO - lr[0]: 0.000003 / lr[1]: 0.000025 / lr[2]: 0.000025
+2025-05-22 11:56:06,343 - train(rank0) - INFO - [0/20]
+2025-05-22 11:56:08,663 - train(rank0) - INFO - [4/20]
+2025-05-22 11:56:10,929 - train(rank0) - INFO - [8/20]
+2025-05-22 11:56:13,199 - train(rank0) - INFO - [12/20]
+2025-05-22 11:56:15,610 - train(rank0) - INFO - [16/20]
+2025-05-22 11:56:17,868 - train(rank0) - INFO - Number of val loader: 85
+2025-05-22 11:56:21,931 - train(rank0) - INFO -     epoch          : 60
+2025-05-22 11:56:21,931 - train(rank0) - INFO -     loss           : 0.16622712463140488
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     loss_mbce      : 0.047376582585275176
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     loss_pkd       : 0.005604642690741457
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     loss_cont      : 0.051077133715152746
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     loss_uncer     : 0.062168763279914864
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_old: 85.12
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_new: 51.08
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_harmonic: 63.84
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_overall: 81.58
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_old: 85.12
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_new: 51.08
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_harmonic: 63.84
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_overall: 68.10
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Pixel_Accuracy_Class_by_class: 
+ 0  background 85.12
+16 *pottedplant 51.08
+
+2025-05-22 11:56:21,932 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_old: 80.83
+2025-05-22 11:56:21,933 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_new: 49.65
+2025-05-22 11:56:21,933 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_harmonic: 61.51
+2025-05-22 11:56:21,933 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_overall: 65.24
+2025-05-22 11:56:21,933 - train(rank0) - INFO -     val_Mean_Intersection_over_Union_by_class: 
+ 0  background 80.83
+16 *pottedplant 49.65
+
+2025-05-22 11:56:22,639 - train(rank0) - INFO - Saving checkpoint: saved_voc/models/overlap_15-1_Adapter/step_1/checkpoint-epoch60.pth ...
+2025-05-22 11:56:22,640 - train(rank0) - INFO - computing prototypes...
+2025-05-22 11:56:27,904 - train(rank0) - INFO - [0/20]
+2025-05-22 11:56:28,460 - train(rank0) - INFO - [4/20]
+2025-05-22 11:56:28,949 - train(rank0) - INFO - [8/20]
+2025-05-22 11:56:29,437 - train(rank0) - INFO - [12/20]
+2025-05-22 11:56:29,925 - train(rank0) - INFO - [16/20]
+2025-05-22 11:56:30,718 - train(rank0) - INFO - computing noise...
+2025-05-22 11:56:35,838 - train(rank0) - INFO - [0/20]
+2025-05-22 11:56:36,339 - train(rank0) - INFO - [4/20]
+2025-05-22 11:56:36,838 - train(rank0) - INFO - [8/20]
+2025-05-22 11:56:37,331 - train(rank0) - INFO - [12/20]
+2025-05-22 11:56:37,826 - train(rank0) - INFO - [16/20]
+2025-05-22 11:56:38,593 - train(rank0) - INFO - Number of test loader: 1277

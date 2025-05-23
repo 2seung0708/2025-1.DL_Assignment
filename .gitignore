@@ -1,0 +1,11 @@
+## Directory
+results_stepsoverlap
+
+data/voc/*.npy
+
+
+save_voc/models/*/*/*.pth
+
+
+*.pth
+*.npy
