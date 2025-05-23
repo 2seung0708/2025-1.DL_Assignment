@@ -1,6 +1,6 @@
 # 2025-1.무인항공시스템을 위한 딥러닝개론
 
-해당 코드는 https://github.com/zhu-gl-ux/Adapter를 기반으로 
+해당 코드는 https://github.com/zhu-gl-ux/Adapter를 기반으로 작성되었습니다.
 
 #### 실험 결과 정량적 리포팅
 - 15-5: 15개의 base 이미지로 학습한 후, 5개의 class에 대해 추가 학습. 총 2번 학습
@@ -56,3 +56,16 @@ python eval_voc.py --device 0 --test --resume $cpt
 - checkpoint를 아래의 경로에서 다운받아 준비합니다.
   - [🔗Checkpoint 다운로드]()
 
+
+## Citation
+```
+@inproceedings{zhu2025adaptive,
+  title={Adaptive prototype replay for class incremental semantic segmentation},
+  author={Zhu, Guilin and Wu, Dongyue and Gao, Changxin and Wang, Runmin and Yang, Weidong and Sang, Nong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={10},
+  pages={10932--10940},
+  year={2025}
+}
+```
